@@ -1,0 +1,6 @@
+devel_space: /home/hzt/team26_intro2ros_2023/devel
+install: false
+install_space: /home/hzt/team26_intro2ros_2023/install
+profile: default
+source_space: /home/hzt/team26_intro2ros_2023/src
+workspace: /home/hzt/team26_intro2ros_2023

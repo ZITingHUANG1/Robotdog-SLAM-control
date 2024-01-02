@@ -1,0 +1,13 @@
+# Target labels
+ libsocket
+# Source files and their labels
+/home/hzt/team26_intro2ros_2023/build/simulation/CMakeFiles/libsocket
+/home/hzt/team26_intro2ros_2023/build/simulation/CMakeFiles/libsocket.rule
+/home/hzt/team26_intro2ros_2023/build/simulation/CMakeFiles/libsocket-complete.rule
+/home/hzt/team26_intro2ros_2023/build/simulation/libsocket-prefix/src/libsocket-stamp/libsocket-install.rule
+/home/hzt/team26_intro2ros_2023/build/simulation/libsocket-prefix/src/libsocket-stamp/libsocket-mkdir.rule
+/home/hzt/team26_intro2ros_2023/build/simulation/libsocket-prefix/src/libsocket-stamp/libsocket-download.rule
+/home/hzt/team26_intro2ros_2023/build/simulation/libsocket-prefix/src/libsocket-stamp/libsocket-update.rule
+/home/hzt/team26_intro2ros_2023/build/simulation/libsocket-prefix/src/libsocket-stamp/libsocket-patch.rule
+/home/hzt/team26_intro2ros_2023/build/simulation/libsocket-prefix/src/libsocket-stamp/libsocket-configure.rule
+/home/hzt/team26_intro2ros_2023/build/simulation/libsocket-prefix/src/libsocket-stamp/libsocket-build.rule

@@ -1,0 +1,1 @@
+/home/hzt/team26_intro2ros_2023/devel/.private/mav_system_msgs/share/mav_system_msgs/cmake/mav_system_msgs-msg-paths.cmake

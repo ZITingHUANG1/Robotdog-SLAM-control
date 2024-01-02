@@ -1,0 +1,8 @@
+prefix=/home/hzt/team26_intro2ros_2023/devel/.private/mymap_pkg
+
+Name: mymap_pkg
+Description: Description of mymap_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

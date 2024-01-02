@@ -1,0 +1,4 @@
+Symlinking /home/hzt/team26_intro2ros_2023/devel/share/controller_pkg/cmake/controller_pkgConfig.cmake
+Symlinking /home/hzt/team26_intro2ros_2023/devel/share/controller_pkg/cmake/controller_pkgConfig-version.cmake
+Symlinking /home/hzt/team26_intro2ros_2023/devel/lib/controller_pkg/controller_node
+Symlinking /home/hzt/team26_intro2ros_2023/devel/lib/pkgconfig/controller_pkg.pc

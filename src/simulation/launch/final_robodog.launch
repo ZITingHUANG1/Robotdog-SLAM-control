@@ -1,0 +1,16 @@
+<launch>
+   <include file="$(find simulation)/launch/simulation.launch" /> <!-- Unity simulation launch file -->
+   <include file="$(find simulation)/launch/3D_OctoMap.launch" /> <!-- map launch file -->
+   <include file="$(find simulation)/launch/navigation.launch" /> <!-- saving the map information -->
+   <!--
+   <node pkg="controller_pkg" type="controller_node" name="controller_node"/>
+   -->
+
+
+
+   <!-- rviz
+        code from: https://answers.ros.org/question/287670/run-rviz-with-configuration-file-from-launch-file/ -->
+   <node pkg="rviz" type="rviz" name="rviz" args="-d $(find simulation)/rviz/robodog.rviz" />
+   <node pkg="controller_pkg" type="controller_node" name="controller_node"/>
+
+</launch>

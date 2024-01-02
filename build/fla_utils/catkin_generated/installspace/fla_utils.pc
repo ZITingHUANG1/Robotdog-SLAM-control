@@ -1,0 +1,8 @@
+prefix=/home/hzt/team26_intro2ros_2023/install
+
+Name: fla_utils
+Description: Description of fla_utils
+Version: 0.0.0
+Cflags: -I${prefix}/include -I/home/hzt/team26_intro2ros_2023/devel/include/utils
+Libs: -L${prefix}/lib 
+Requires: 

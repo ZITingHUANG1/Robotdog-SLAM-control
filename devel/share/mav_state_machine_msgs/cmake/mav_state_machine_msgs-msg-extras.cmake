@@ -1,0 +1,1 @@
+/home/hzt/team26_intro2ros_2023/devel/.private/mav_state_machine_msgs/share/mav_state_machine_msgs/cmake/mav_state_machine_msgs-msg-extras.cmake

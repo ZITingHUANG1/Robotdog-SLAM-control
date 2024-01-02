@@ -1,0 +1,1 @@
+/home/hzt/team26_intro2ros_2023/devel/.private/controller_pkg/share/controller_pkg/cmake/controller_pkgConfig.cmake

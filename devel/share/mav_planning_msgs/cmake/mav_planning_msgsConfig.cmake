@@ -1,0 +1,1 @@
+/home/hzt/team26_intro2ros_2023/devel/.private/mav_planning_msgs/share/mav_planning_msgs/cmake/mav_planning_msgsConfig.cmake

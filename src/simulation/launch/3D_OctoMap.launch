@@ -1,0 +1,67 @@
+<launch>
+
+
+     <!-- to define parameters (??) -->
+     <!-- name = name of a topic, default = information -->
+     <arg name="load_params" default="true" />
+     <arg name="corrupt_state_estimate" default="true" />
+     <arg name="right_image_topic" default="/realsense/rgb/right_image_raw" />
+     <arg name="right_info_topic" default="/realsense/rgb/right_image_info" />
+     <arg name="left_image_topic" default="/realsense/rgb/left_image_raw" />
+     <arg name="left_info_topic" default="/realsense/rgb/left_image_info" />
+     <arg name="depth_image_topic" default="/realsense/depth/image" />
+     <arg name="depth_info_topic" default="/realsense/depth/camera_info" />
+     <!-- // -->
+     <!-- To execute a point_cloud_xyz nodelet
+          Source code for the launch file: http://wiki.ros.org/nodelet/Tutorials/Running%20a%20nodelet
+                                         : http://wiki.ros.org/depth_image_proc
+          Nodelet is to convert depth image to XYZ point cloud -->
+     <node pkg="nodelet" type="nodelet" name="nodelet_manager" args="manager" />
+
+     <node pkg="nodelet" type="nodelet" name="nodelet1" args="load depth_image_proc/point_cloud_xyz nodelet_manager" >
+           <remap from="camera_info" to="$(arg depth_info_topic)" />
+           <remap from="image_rect" to="$(arg depth_image_topic)" />
+           <!--
+           <remap from="points" to="/point_cloud_xyz" />
+           -->
+           <remap from="points" to="/point_cloud" />
+     </node>
+     <!-- // -->
+
+     <!-- To execute octomap_server (3D-)mapping - to build 3D occupancy maps
+          Source code for the launch file: https://github.com/OctoMap/octomap_mapping/blob/kinetic-devel/octomap_server/launch/octomap_mapping.launch
+                                           http://wiki.ros.org/octomap_server
+          It get PosintColud2 data and builds an octomap -->
+     <node pkg="octomap_server" type="octomap_server_node" name="octomap_server" >
+           <param name="resolution" value="0.15" />
+           <param name="frame_id" type="string" value="world" />
+           <param name="base_frame_id"  value="true_body" />
+           <param name="latch"  value="false" />
+
+		       <!-- <param name="colored_map" type="bool" value="true" /> -->
+           <param name="height_map" value = "false" />
+	         <param name="sensor_model/max_range" value="2.0" />
+
+           <!-- <param name="filter_ground" type="bool" value="true" /> -->
+           <param name="pointcloud_min_z" type="double" value="0.10" />
+           <param name="pointcloud_max_z" type="double" value="5.0" />
+           <!-- <param name="occupancy_min_z" type="double" value="0.2" />
+           <param name="occupancy_max_z" type="double" value="2.0" /> -->
+           <param name="ground_filter/distance" type="double" value="0.18" />
+           <param name="ground_filter/angle" type="double" value="1.0" />
+           <!-- <param name="ground_filter/plane_distance" type="double" value="0.15" /> -->
+           <remap from="cloud_in" to="/point_cloud" />
+
+
+              <!-- added
+                   not to take the ground as an obstracle -->
+
+              <!-- <param name="ground_filter/distance" type="double" value="1.0" />  -->
+              <!-- <param name="pointcloud_min_z" type="double" value="0.05" /> -->
+
+
+     </node>
+     <!-- // -->
+
+
+</launch>

@@ -1,0 +1,54 @@
+TrajectoryPlannerROS:
+  ## Max/Min vel in x and y direction
+  max_vel_x: 3
+  min_vel_x: 0.1
+  max_vel_y: 0
+  min_vel_y: 0
+
+  ##Max/Min angular vel
+  max_vel_trans: 3.7
+  min_vel_trans: 0.0
+  max_vel_theta: 2
+  min_vel_theta: 0
+
+
+  # Escape vel
+  escape_vel: -0.1
+
+  # When spin min angular vel of the base
+  min_in_place_vel_theta: 0.1
+
+
+  acc_lim_theta: 4.18
+  acc_lim_x: 2.37
+  acc_lim_y: 0
+
+  # Goal tolerance
+  xy_goal_tolerance: 0.5
+  yaw_goal_tolerance: 0.1
+
+
+  latch_xy_goal_tolerance: false
+  pdist_scale: 0.8
+  gdist_scale: 0.4
+
+
+
+  sim_time: 1.0
+  sim_granularity: 0.2
+  angular_sim_granularity: 0.1
+  vx_samples: 3
+  vy_samples: 0
+  vtheta_samples: 20
+  controller_frequency: 2
+
+  prune_plan: true
+  heading_scoring: true
+  holonomic_robot: false
+  meter_scoring: true
+  path_distance_bias: 1
+  goal_distance_bias: 2
+  occdist_scale: 0.1
+  heading_lookahead: 1  #how far robots looks ahead when spin at the place
+  heading_scoring_timestep: 1
+  dwa: true

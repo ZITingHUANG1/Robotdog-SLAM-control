@@ -1,0 +1,63 @@
+# footprint: [[-0.4, -0.4], [-0.4, 0.4], [0.4, 0.4], [0.4, -0.4]]
+footprint: [[0.25, 0.35], [0.25, -0.35], [-0.25, -0.35], [-0.25, 0.35]]
+obstacle_range: 1.5
+raytrace_range: 2.0
+inflation_radius: 0.35 # to be tuned
+
+
+allow_unknown: true
+
+plugins:
+  - {name: static_layer, type: "costmap_2d::StaticLayer"}
+  - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
+
+
+# observation_sources: point_cloud_sensor
+# point_cloud_sensor: {
+#   #sensor_frame : RoboDog/base_0/Quad_Intro2ROS/Sensors/DepthCamera,
+#   sensor_frame : true_body,
+#   data_type    : PointCloud2,
+#   topic        : /point_cloud,
+#   marking      : true,
+#   clearing     : true
+# }
+
+# params for obstacle layer， the parameters determines how the obstacle is detected
+obstacle_layer:
+  enabled:              true
+  footprint_clearing_enabled: true
+  min_obstacle_height:  1
+  max_obstacle_height:  5 # max height of the obstacle；
+  origin_z:             0.0
+  z_resolution:         0.3
+  z_voxels:             1
+  unknown_threshold:    0
+  mark_threshold:       0
+  combination_method:   1
+  track_unknown_space:  true    # true: tranverse to unknown area not allowed；
+  obstacle_range: 1.5   # obstacle range
+  raytrace_range: 2   # clear obstacle range
+  raytrace_min_range: 0.5
+  publish_voxel_map: false
+  clearing: true
+  observation_sources: point_cloud_sensor
+  point_cloud_sensor: {
+    #sensor_frame : RoboDog/base_0/Quad_Intro2ROS/Sensors/DepthCamera,
+    sensor_frame : true_body,
+    data_type    : PointCloud2,
+    topic        : /point_cloud,
+    marking      : true,
+    clearing     : true
+  }
+
+
+static_layer:
+  enabled               : enabled
+  map_topic             : /projected_map
+  subscribe_to_updates  : true
+  track_unknown_space   : true
+
+inflater_layer:
+  enabled               : true
+  inflation_radius: 0.35
+  cost_scaling_factor: 3.0 # exponential rate at which the obstacle cost drops off (default: 10)

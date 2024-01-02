@@ -1,0 +1,53 @@
+<launch>
+
+   <!-- Description
+        1. map_server: (/map)(nav_msgs/GetMap) -> global_costmap -> global_planner
+        2. sensor source: (sensor topics)(sensor_msgs/LaserScan - sensor_msgs/PointCloud) -> glocal_costmap
+                                                                                          -> local_costmap -> local_plllner
+    -->
+
+
+   <!-- to save the map from the octomap topic
+        The "yaml" file describes the map meta-data and names the image file encoding the occupancy data
+        http://wiki.ros.org/navigation/Tutorials/RobotSetup
+        http://wiki.ros.org/map_server#map_saver -->
+
+
+   <!-- Map Server -->
+   <node pkg="map_server" type="map_server" name="map_server" args="$(find simulation)/map/mymap2.yaml" />
+   <!-- <node pkg="map_server" type="map_server" name="map_server" args="$(find simulation)/map/my_map.yaml" /> -->
+
+   <!-- Localization -->
+
+   <arg name="custom_amcl_launch_file" default="$(find simulation)/launch/amcl.launch"/>
+
+
+   <include file="$(arg custom_amcl_launch_file)">
+
+     <arg name="initial_pose_x" value="0.0"/>
+     <arg name="initial_pose_y" value="0.0"/>
+     <arg name="initial_pose_a" value="0.0"/>
+
+   </include>
+
+  <!-- Path Planning -->
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" >
+         <rosparam file="$(find simulation)/params/costmap_common_params.yaml" command="load" ns="global_costmap" />
+         <rosparam file="$(find simulation)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
+         <rosparam file="$(find simulation)/params/local_costmap_params.yaml" command="load" />
+         <rosparam file="$(find simulation)/params/global_costmap_params.yaml" command="load" />
+         <rosparam file="$(find simulation)/params/graph_planner_params.yaml" command="load" />
+         <rosparam file="$(find simulation)/params/base_local_planner_params.yaml" command="load" />
+         <rosparam file="$(find simulation)/params/move_base_params.yaml" command="load" />
+         <rosparam file="$(find simulation)/params/dwa_local_planner_params.yaml" command="load" />
+         <rosparam file="$(find simulation)/params/navfn_global_planner_params.yaml" command="load" />
+
+         <!-- <param name="base_global_planner" value="graph_planner/GraphPlanner" /> -->
+         <!-- <param name="GraphPlanner/planner_name" value="a_star" />
+         <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" /> -->
+   </node>
+   <!-- // -->
+
+
+
+</launch>

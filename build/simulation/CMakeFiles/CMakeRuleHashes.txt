@@ -1,0 +1,11 @@
+# Hashes of file build rules.
+0fc1f282f347694d5fe50c7951e03000 CMakeFiles/clean_test_results
+4911a1c3114a47cb52de2383bf6aad91 CMakeFiles/libsocket
+f5a503f0118918830037a864c7b0da44 CMakeFiles/libsocket-complete
+a7314f5f32d7ee785bb19bf1637aa337 libsocket-prefix/src/libsocket-stamp/libsocket-build
+3266172c64b4a5d48481a339f0d62a23 libsocket-prefix/src/libsocket-stamp/libsocket-configure
+83bc2f843452e90ba8cc057efd1aa5a0 libsocket-prefix/src/libsocket-stamp/libsocket-download
+1abe4cccf950b479585feafd43d8f18f libsocket-prefix/src/libsocket-stamp/libsocket-install
+22131731c641d20bfc5cbabca65d621a libsocket-prefix/src/libsocket-stamp/libsocket-mkdir
+e96250d2acc906e2692616ce39819621 libsocket-prefix/src/libsocket-stamp/libsocket-patch
+2c352b42cad7aa88a2e6ab6524a36be3 libsocket-prefix/src/libsocket-stamp/libsocket-update
